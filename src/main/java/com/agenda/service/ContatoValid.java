@@ -18,13 +18,11 @@ public class ContatoValid {
 		String telefone = contato.getTelefone();
 		System.out.println("Valid " +contato.getNome());
 		if(nome == null || nome.isEmpty() || telefone == null || telefone.isEmpty()) {
-			System.out.println("Redirecionando");
 			messagem.addFlashAttribute("vazio", Mensagem.VAZIO.getMensagem());
 			return "redirect:/";
 		}else {
 			dao.salvar(contato);
 			messagem.addFlashAttribute("sucesso", Mensagem.SUCESSO.getMensagem());
-			System.out.println("Sucesso");
 			return "redirect:/";
 		}
 	}

@@ -22,7 +22,6 @@ public class IndexController {
 
 	@RequestMapping({"/","/index"})
 	public ModelAndView home(Contato contato) {
-		System.out.println("Controller Index");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("contato", dao.buscarTodos());
 		return mv;
