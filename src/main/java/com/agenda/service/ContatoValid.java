@@ -13,8 +13,9 @@ public class ContatoValid {
 	
 	public String validar(Contato contato) {
 		String nome = contato.getNome();
+		String telefone = contato.getTelefone();
 		System.out.println("Valid " +contato.getNome());
-		if(nome == null || nome.isEmpty()) {
+		if(nome == null || nome.isEmpty() || telefone == null || telefone.isEmpty()) {
 			System.out.println("Redirecionando");
 			return "redirect:/";
 		}else {
