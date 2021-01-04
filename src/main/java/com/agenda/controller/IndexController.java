@@ -1,8 +1,13 @@
 package com.agenda.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.servlet.ModelAndView;
+
+import com.agenda.model.Contato;
 import com.agenda.service.ContatoDAO;
 
 
@@ -15,15 +20,13 @@ public class IndexController {
 	private ContatoDAO dao;
 	
 
-	@RequestMapping("/")
-	public ModelAndView home() {
+	@RequestMapping({"/","/index"})
+	public ModelAndView home(Contato contato) {
+		System.out.println("Controller Index");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("contato", dao.buscarTodos());
 		return mv;
 	}
-
-
-	
 
 
 
