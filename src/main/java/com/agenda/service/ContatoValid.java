@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.agenda.mensagens.Mensagem;
+import com.agenda.acao.status.Mensagem;
 import com.agenda.model.Contato;
 
 @Component
@@ -25,6 +25,21 @@ public class ContatoValid {
 			messagem.addFlashAttribute("mensagem", Mensagem.SUCESSO.getMensagem());
 			return "redirect:/";
 		}
+	}
+	
+	public String validarDelete(Integer id, RedirectAttributes messagem) {
+		
+		if(id > 0) {
+			messagem.addFlashAttribute("mensagem", Mensagem.DELETADO_SUCESSO.getMensagem());
+			dao.deletar(id);
+			return "redirect:/";
+			
+		}else {
+		messagem.addFlashAttribute("mensagem", Mensagem.DELETADO_FALHA.getMensagem());
+			return "redirect:/";
+		}
+		
+		
 	}
 
 }

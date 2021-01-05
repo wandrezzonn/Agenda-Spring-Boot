@@ -22,5 +22,9 @@ public class ContatoDAO {
 		return repor.save(contato);
 	}
 	
+ public void deletar(Integer id) {
+	 repor.deleteById(id);
+ }
+	
 	
 }
