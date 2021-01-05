@@ -6,6 +6,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="scrpit.js">
+
+</script>
 <meta charset="ISO-8859-1">
 <title>Agenda || Home</title>
 </head>
@@ -39,7 +42,7 @@
 					<tr>
 						<td>${ctt.nome}</td>
 						<td>${ctt.telefone}</td>
-						<td><a href="deletar/${ctt.id }">Deletar</a> || <a href="">Alterar</a></td>
+						<td><a href="javascript:confirmar(${ctt.id})">Deletar</a> || <a href="">Alterar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
