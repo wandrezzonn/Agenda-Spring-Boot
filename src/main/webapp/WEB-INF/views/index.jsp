@@ -8,15 +8,16 @@
 <title>Agenda || Home</title>
 </head>
 <body>
-<div style ="background-color: green">
+<div class="msg">
 <c:if test="${not empty mensagem }">
 <c:out value="${mensagem}"></c:out>
 </c:if>
 </div>
+
 	<form action="salvar" method="post">
-		<label>Nome</label> <input type="text" name="nome" id="nome" ><br>
+		<label>Nome</label> <input type="text" name="nome" id="nome" >
 		<br> <label>Telefone</label> <input type="text" name="telefone"
-			id="telefone"><br> <input type="submit" value="Salvar"><br>
+			id="telefone"><br> <input type="submit" value="Salvar">
 		<br>
 	</form>
 
