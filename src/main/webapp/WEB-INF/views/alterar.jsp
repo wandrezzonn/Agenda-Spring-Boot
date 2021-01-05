@@ -8,6 +8,7 @@
 <title>Alterar Contato</title>
 </head>
 <body>
+
 	<form action="alterar" method="post">
 		<input type="hidden" value="${contato.id }" name="id"> <label>Nome</label>
 		<input type="text" name="nome" id="nome" value="${contato.nome}">
@@ -16,5 +17,6 @@
 			type="submit" value="Salvar"> <br>
 
 	</form>
+<a href="/">Voltar</a>
 </body>
 </html>

@@ -16,7 +16,7 @@
 	<div class="container">
 
 
-		<form action="salvar2" method="post">
+		<form action="salvar" method="post">
 			<label>Nome</label> <input type="text" name="nome" id="nome">
 			<br> <label>Telefone</label> <input type="text" name="telefone"
 				id="telefone"><br> <input type="submit" value="Salvar">
