@@ -8,15 +8,11 @@
 <title>Agenda || Home</title>
 </head>
 <body>
-<c:if test="${not empty sucesso }">
-<p>Mensagem</p>
-<c:out value="${sucesso}"></c:out>
+<div style ="background-color: green">
+<c:if test="${not empty mensagem }">
+<c:out value="${mensagem}"></c:out>
 </c:if>
-<c:if test="${not empty vazio }">
-<p>Mensagem</p>
-<c:out value="${vazio}"></c:out>
-</c:if>
-
+</div>
 	<form action="salvar" method="post">
 		<label>Nome</label> <input type="text" name="nome" id="nome" ><br>
 		<br> <label>Telefone</label> <input type="text" name="telefone"

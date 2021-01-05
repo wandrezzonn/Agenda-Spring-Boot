@@ -12,20 +12,19 @@ public class ContatoValid {
 
 	@Autowired
 	private ContatoDAO dao;
-	
-	public String validar(Contato contato,RedirectAttributes messagem) {
+
+	public String validar(Contato contato, RedirectAttributes messagem) {
 		String nome = contato.getNome();
 		String telefone = contato.getTelefone();
-		System.out.println("Valid " +contato.getNome());
-		if(nome == null || nome.isEmpty() || telefone == null || telefone.isEmpty()) {
-			messagem.addFlashAttribute("vazio", Mensagem.VAZIO.getMensagem());
+		System.out.println("Valid " + contato.getNome());
+		if (nome == null || nome.isEmpty() || telefone == null || telefone.isEmpty()) {
+			messagem.addFlashAttribute("mensagem", Mensagem.VAZIO.getMensagem());
 			return "redirect:/";
-		}else {
+		} else {
 			dao.salvar(contato);
-			messagem.addFlashAttribute("sucesso", Mensagem.SUCESSO.getMensagem());
+			messagem.addFlashAttribute("mensagem", Mensagem.SUCESSO.getMensagem());
 			return "redirect:/";
 		}
 	}
-	
 
 }
