@@ -13,33 +13,39 @@ public class ContatoValid {
 	@Autowired
 	private ContatoDAO dao;
 
-	public String validar(Contato contato, RedirectAttributes messagem) {
+	public String validarSalvar(Contato contato, RedirectAttributes messagem) {
 		String nome = contato.getNome();
 		String telefone = contato.getTelefone();
-		System.out.println("Valid " + contato.getNome());
+	
 		if (nome == null || nome.isEmpty() || telefone == null || telefone.isEmpty()) {
 			messagem.addFlashAttribute("mensagem", Mensagem.VAZIO.getMensagem());
 			return "redirect:/";
 		} else {
-			dao.salvar(contato);
-			messagem.addFlashAttribute("mensagem", Mensagem.SUCESSO.getMensagem());
-			return "redirect:/";
+			if(contato.getId() != null) {
+				dao.salvar(contato);
+				messagem.addFlashAttribute("mensagem", Mensagem.ALTERADO_SUCESSO.getMensagem());
+				return "redirect:/";
+			}else {
+				dao.salvar(contato);
+				messagem.addFlashAttribute("mensagem", Mensagem.SALVO_SUCESSO.getMensagem());
+				return "redirect:/";
+			}
+			
 		}
 	}
-	
+
 	public String validarDelete(Integer id, RedirectAttributes messagem) {
-		
-		if(id > 0) {
+
+		if (id > 0) {
 			messagem.addFlashAttribute("mensagem", Mensagem.DELETADO_SUCESSO.getMensagem());
 			dao.deletar(id);
 			return "redirect:/";
-			
-		}else {
-		messagem.addFlashAttribute("mensagem", Mensagem.DELETADO_FALHA.getMensagem());
+
+		} else {
+			messagem.addFlashAttribute("mensagem", Mensagem.DELETADO_FALHA.getMensagem());
 			return "redirect:/";
 		}
-		
-		
+
 	}
 
 }

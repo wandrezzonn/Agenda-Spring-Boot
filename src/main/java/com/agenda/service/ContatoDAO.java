@@ -25,6 +25,14 @@ public class ContatoDAO {
  public void deletar(Integer id) {
 	 repor.deleteById(id);
  }
+ 
+ 
+ public Contato buscarPorId(Integer id) {
+	 
+	 
+	return repor.findById(id).get();
+	 
+ }
 	
 	
 }
